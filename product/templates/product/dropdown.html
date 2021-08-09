@@ -1,0 +1,38 @@
+ <div class="">
+                    <form method="GET">
+                        <div class="row">
+                            <div class="col-sm-3 mb-2">
+                                <h4>Filter:</h4>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="dropdown show">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    --Catagory--
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% for field in product_filter.form.catagory %}
+                                            <p class="dropdown-item">{{field}}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                            <div class="dropdown show">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    --Sub Catagory--
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% for field in product_filter.form.sub_catagory %}
+                                            <p class="dropdown-item">{{field}}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>

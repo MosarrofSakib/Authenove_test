@@ -1,0 +1,150 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% include 'product/line_break.html' %}
+    
+      <style>
+      .user_card {
+        width: 100%;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: #34495e;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 80px 0;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+      }
+
+      .form_container {
+        margin-top: 20px;
+      }
+
+      #form-title{
+        color: #fff;
+      }
+      .login_btn {
+        width: 100%;
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #2ecc71;
+        padding: 5px 40px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+        cursor: pointer;
+      }
+      .login_btn:hover {
+        background: #2ecc71;
+      }
+      .login_container {
+        padding: 0 2rem;
+      }
+      .input-group-text {
+        background: #2ecc71  !important;
+        color: white !important;
+        border: 0 !important;
+        border-radius: 0.25rem 0 0 0.25rem !important;
+      }
+      .input_user,
+      .input_pass:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+      }
+          .myLink{
+              color: #2ecc71;
+              text-decoration: none;
+              margin-left: 5px;
+          }
+          .myLink:hover{
+              color: white;
+              text-decoration: underline !important;
+          }
+          .myError p{
+            color: red !important;
+          }
+          .myError{
+            margin-top: 30px;
+          }
+
+
+      </style>
+
+      <div class="container h-100">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="user_card">
+                        <div class="d-flex justify-content-center">
+                            <h3 id="form-title">LOGIN</h3>
+                        </div>
+                        <div class="d-flex justify-content-center form_container">
+
+                            <form method="POST" action="">
+                              {% csrf_token %}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="username" placeholder="Username..." class="form-control">
+                                </div>
+                                
+                                <div class="input-group mb-2">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input id="myInput" type="password" name="password" placeholder="Password..." class="form-control" >
+                                    
+                                </div>
+                                <div class="custom-control custom-checkbox mt-4 ml-5">
+                                      <input type="checkbox" onclick="myFunction()" class="custom-control-input" id="customCheck1">
+                                      <label class="custom-control-label" for="customCheck1">show password</label>
+                                </div>
+
+                                <div class="myError">
+                                  {% for message in messages %}
+                                    <p id="messages">{{message}}</p>
+                                  {% endfor %}	
+                                </div>
+
+                                <div class="d-flex justify-content-center mt-3 login_container">
+                                    <input class="btn login_btn" type="submit" value="Login">
+                                </div>
+                            </form>
+                        </div>
+                
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-center links">
+                                Don't have an account? <a class="myLink" href="{% url 'register' %}" class="ml-2">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+    </script>
+{% endblock content %}

@@ -1,0 +1,76 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% include "product/line_break.html" %}
+    <div class="container">
+    <div class="row">
+        <div class="col-md">
+            <h4 class="mb-4">Order details</h4>
+            <br>
+            {% for field in ship_address %}
+            <div class="row mb-4 ml-4">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5 class="mb-1">Customer Name:</h5>
+                            <h5 class="mt-1 mb-2">Phone No:  </h5>
+                            <h5 class="mt-1 mb-2">Address: </h5>
+                            <h5 class="mt-1 mb-2">City: </h5>
+                            <h5 class="mt-1 mb-2">Transaction Id: </h5>
+
+                        </div>
+                        <div class="col-4 ">
+                            <h6 class="mb-3">{{order.customer}}</h6>
+                            <h6 class="mb-3">{{field.phone_no}}</h6>
+                            <h6 class="mb-2">{{field.address}}</h6>
+                            <h6 class="mb-2">{{field.city}}</h6>
+                            <h6 class="mb-3">{{order.transaction_id}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            {% endfor %}
+            
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+
+                        <th scope="col">Product Code</th>
+                        <th scope="col">Order</th>
+                        <th scope="col">Quantiy</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            
+                            <td>
+                            {% for item in orderItem %}
+                                <p>{{item.product.code}}</p>
+                            {% endfor %}
+                            </td>
+                            <td>
+                                {% for item in orderItem %}
+                                    <p>{{item.product.name}}</p> 
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {{ order.get_cart_items }}
+                            </td>
+                            <td>{{order.get_cart_total}}</td>
+                            <td>
+                            <form action="" method="POST">
+                            {% csrf_token %}
+                                {{form.status}}
+                                <input type="submit" class="btn btn-info">
+                            </form>
+                            </td>    
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+{% endblock content %}

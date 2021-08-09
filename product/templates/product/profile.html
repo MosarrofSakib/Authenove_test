@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% include 'product/line_break.html' %}
+    <div class=container>
+   
+    <h1>Profile page</h1>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="ml-4 mb-4 w-auto" >
+                <h5>Name: {{customer.name}}</h5>
+                <h5>Email: {{customer.email}}</h5>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-light text-center">
+                    <h5>Total Orders</h5>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-text text-center">{{total_orders}}</h4>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border bg-light p-4 mt-4" >
+        <h4 class="mb-4"> Customer Orders: </h4>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>
+                        <a href="">{{order.transaction_id}}</a>
+                        </td>
+                        <td>{{order.status}}</td>
+                    </tr>
+                {% endfor %}    
+            </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock content %}

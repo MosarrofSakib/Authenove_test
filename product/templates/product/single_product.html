@@ -1,0 +1,152 @@
+{% extends 'main.html' %}
+{% block content %}
+    
+    <div class="container pt-5">
+    
+    <section class="bg-light">
+    <h2 class="pl-4 pt-5 mt-4">Product Details</h2>
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-lg-5 mt-5">
+                <div class="card mb-3">
+                    <img class="card-img img-fluid" src="{{product.imageURL}}" alt="Card image cap" id="product-detail">
+                </div>
+                {% comment %} <div class="row">
+                    <!--Start Carousel Wrapper-->
+                    <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
+                        <!--Start Slides-->
+                        <div class="carousel-inner product-links-wap" role="listbox">
+
+                            <!--First slide-->
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <a href="#">
+                                            <img class="card-img img-fluid" src="" alt="Product Image 1">
+                                        </a>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="#">
+                                            <img class="card-img img-fluid" src="" alt="Product Image 2">
+                                        </a>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="#">
+                                            <img class="card-img img-fluid" src="" alt="Product Image 3">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.First slide-->
+                        </div>
+                        <!--End Slides-->
+                    </div>
+                        <!--End Carousel Wrapper-->
+                </div> {% endcomment %}
+            </div>
+                <!-- col end -->
+            <div class="col-lg-7 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="h2">{{product.name}}</h1>
+                        <p class="h3 py-2">TK. {{product.price}}</p>
+                        <p class="py-2">
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <span class="list-inline-item text-dark">{{product.review_ratio}}</span>
+                        </p>
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item">
+                                <h6>Catagory:</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted btn btn-light btn-sm"><strong>{{product.catagory}}</strong></p>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted btn btn-light btn-sm"><strong>{{product.sub_catagory}}</strong></p>
+                            </li>
+                        </ul>
+
+                        <h6 class="mb-2">Description:</h6>
+                        <p class="mb-2">{{product.description}}</p>
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item">
+                                <h6>Avaliable Color :</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted"><strong>White / Black</strong></p>
+                            </li>
+                        </ul>
+                        <form action="" >
+                            {% comment %} {% csrf_token %} {% endcomment %}
+                            <div class="row mb-2">
+                                <div class="col-auto mb-2">
+                                    <ul class="list-inline pb-3">
+                                        <li class="list-inline-item">Size :
+                                        </li>
+                                        <li class="list-inline-item"><span class="">S</span></li>
+                                        <li class="list-inline-item"><span class="">M</span></li>
+                                        <li class="list-inline-item"><span class="">L</span></li>
+                                        <li class="list-inline-item"><span class="">XL</span></li>
+                                    </ul>
+                                </div>
+                                {% comment %} <div class="col-auto mb-2">
+                                    <ul class="list-inline pb-3">
+                                        <li class="list-inline-item text-right">
+                                            Quantity
+                                            <input type="hidden" id="product-quantity" name="product_quantity"  value="1">
+                                        </li>
+                                        {% if item.product.id == product.id %}
+                                            <li class="list-inline-item"><span data-product="{{item.product.id}}" data-action="remove" class="btn btn-success " id="btn-minus">-</span></li>
+                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">{{item.quantity}}</span></li>
+                                            <li class="list-inline-item"><span data-product="{{item.product.id}}" data-action="add" class="btn btn-success " id="btn-plus">+</span></li>
+                                        {% else %}
+                                            <li class="list-inline-item"><span data-product="{{item.product.id}}" data-action="remove" class="btn btn-success " id="btn-minus">-</span></li>
+                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
+                                            <li class="list-inline-item"><span data-product="{{item.product.id}}" data-action="add" class="btn btn-success " id="btn-plus">+</span></li>
+                                        {% endif %}
+                                    </ul>
+                                </div> {% endcomment %}
+                            </div>
+                            <div class="row pb-3">
+                                <div class="col d-grid">
+                                    <button data-product="{{product.id}}" data-action="add" type="submit" class="btn btn-success btn-lg update-cart" >Add To Cart</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    </div>
+
+    <script type="text/javascript">
+        {% comment %} $('#btn-minus').click(function(){
+            var val =$("#var-value").html()
+            val = (val=='1')?val:val-1;
+            $("#var-value").html(val);
+            return false;
+            })
+        $('#btn-plus').click(function(){
+            var val =$("#var-value").html()
+            val++;
+            $("#var-value").html(val);
+            return false;
+            })
+        var quantity
+        document.getElementById('add_cart').addEventListener('click', function(e){
+	    	submitFormData()
+	    })
+        function submitFormData(){
+            quantity = $("#var-value").html()
+            console.log("Data submitted", quantity)
+            alert('Item added')
+        } {% endcomment %}
+    </script>
+        
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+{% block banner %}
+    {% include 'banner.html' %}
+{% endblock banner %}
+{% block content %}
+    <div class="latest-products">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                <h2>Latest Products</h2>
+                <a href="{% url 'products' %}">view all products <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+
+        
+        {% for product in products %}
+            <div class="col-lg-6 col-xl-4">
+                <div class="product-item">
+                    <a href="{% url 'single_product' product.id %}"><img src="{{product.imageURL}}" alt="no image"></a>
+                    <div class="down-content">
+                        <a href="{% url 'single_product' product.id %}"><h4>{{product.name}}</h4></a>
+                        <br>
+                        <h6>TK. {{product.price}}</h6>
+                        <p>{{product.description|truncatechars:100}}</p>
+                        <div style="margin-bottom: 5px;">
+                            <ul class="stars">
+                            <li><i class="fa">(4.7)</i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            </ul>
+                            <p class="">Reviews</p>
+                        </div>
+                        <div>
+                            <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-primary add-btn update-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+{% block bottomContent %}
+    {%include 'bottom_content.html'%}
+{% endblock bottomContent %}

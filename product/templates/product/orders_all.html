@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% include 'product/line_break.html' %}
+    <div class="container">
+    {% include 'product/status_all.html' %}
+    
+    <div class="border bg-light p-4 mt-4" >
+        <h4 class="mb-4">All Orders list:</h4>
+        <div class="row">
+            <div class="col-sm">
+                <div class="mb-5">
+                    <form method="GET">
+                        {% for field in filter.form %}
+                            {{field.label}}
+                            {{field}}
+                        {% endfor %}
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Transaction Id</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{order.customer}}</td>
+                            <td>{{order.transaction_id}}</td>
+                            <td>{{order.get_cart_items}}</td>
+                            <td>{{order.get_cart_total}}</td>
+                            <td>{{order.status}}</td>
+                            <td>
+                                <a href="{% url 'order_details' order.id %}"><span class="material-icons">edit</span></a>
+                                {% comment %} <a href=""><span class="material-icons">delete</span></a> {% endcomment %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+    </div>
+{% endblock content %}

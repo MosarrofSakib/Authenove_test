@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% include 'product/line_break.html' %}
+    <div class="container">
+    <div class="border bg-light p-4 mt-4" >
+        <h4 class="mb-4"> Customers: </h4>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Profile</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Date</th>
+                    
+                    </tr>
+                </thead>
+            <tbody>
+                {% for customer in customers %}
+                    <tr>
+                        <td><a class="btn btn-sm btn-primary" href=" {% url 'customer_details' customer.id %} ">View</a></td>
+                        <td>{{customer.name}}</td>
+                        <td>{{customer.date_created|date:"d M y"}}</td>
+                    </tr>
+                {% endfor %}    
+            </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock content %}

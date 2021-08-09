@@ -1,0 +1,58 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% include 'product/line_break.html' %}
+    <div class="container">
+    {% include 'product/status_all.html' %}
+    <div class ="row mt-2">
+        <div class="col-lg-5">
+            <div class="border bg-light p-4 mt-4" >
+                <h4 class="mb-2"> Customers: </h4>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for customer in customers_latest %}
+                        <tr>
+                        <td>{{customer.name}}</td>
+                        <td>{{customer.email}}</td>
+                        <td>{{customer.date_created|date:"d M y"}}</td>
+                        </tr>
+                        {% endfor %}    
+                    </tbody>
+                </table>
+                <a class="btn btn-outline-primary" href="{% url 'customers' %}">Show All</a>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="border bg-light p-4 mt-4" >
+                <h4 class="mb-2"> Show orders: </h4>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders_latest %}
+                        <tr>
+                        <td>{{order.customer}}</td>
+                        <td>{{order.get_cart_items}}</td>
+                        <td>{{order.status}}</td>
+                        </tr>
+                        {% endfor %}    
+                    </tbody>
+                </table>
+                <a class="btn btn-outline-primary" href="{% url 'orders' %}">Show All</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock content %}
