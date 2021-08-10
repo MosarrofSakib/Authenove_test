@@ -11,7 +11,7 @@ class Product(models.Model):
     
     CATAGORY = [
         ('Home Decor', 'Home Decor'),
-        ('Mathir sets','Mathir sets'),
+        ('Matir sets','Matir sets'),
         ("Men's Collection","Men's Collection"),
     ]
     Sub_CATAGORY = [

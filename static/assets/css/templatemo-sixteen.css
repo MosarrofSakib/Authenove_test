@@ -993,9 +993,9 @@ footer .inner-content p a {
 		margin-bottom: 20px!important;
 	}
 	.product-item .down-content h6 {
-		position: absolute!important;
-		top: 30px!important;
-		right: 30px!important;
+		position: relative;
+		top: 0;
+		right: 0;
 	}
 	.product-item .down-content span {
 		position: absolute!important;
@@ -1073,13 +1073,12 @@ footer .inner-content p a {
 		padding-bottom: 15px;
 	}
 	.product-item .down-content h4 {
-		margin-bottom: 10px;
+		margin-bottom: 20px!important;
 	}
 	.product-item .down-content h6 {
-		position: relative;
-		top: 0;
-		right: 0;
-		margin-bottom: 20px;
+		position: relative !important;
+		top: 0 !important;
+		right: 0 !important;
 	}
 	.product-item .down-content span {
 		position: relative;

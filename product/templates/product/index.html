@@ -20,7 +20,6 @@
                     <a href="{% url 'single_product' product.id %}"><img src="{{product.imageURL}}" alt="no image"></a>
                     <div class="down-content">
                         <a href="{% url 'single_product' product.id %}"><h4>{{product.name}}</h4></a>
-                        <br>
                         <h6>TK. {{product.price}}</h6>
                         <p>{{product.description|truncatechars:100}}</p>
                         <div style="margin-bottom: 5px;">
