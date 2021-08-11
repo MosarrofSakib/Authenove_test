@@ -9,7 +9,6 @@ def cookieCart(request):
 		cart = json.loads(request.COOKIES['cart'])
 	except:
 		cart = {}
-		print('CART:', cart)
 
 	items = []
 	order = {'get_cart_total':0, 'get_cart_items':0,}
@@ -61,7 +60,7 @@ def guestOrder(request, data):
 	items = cookieData['items']
 
 	customer, created = Customer.objects.get_or_create(
-			phone_no=email,
+			email=email,
 			)
 	customer.name = name
 	customer.save()
