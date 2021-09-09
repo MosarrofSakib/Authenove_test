@@ -1,2 +1,4 @@
-env2/
+env/
 .vscode/
+_pycache_/
+ecommerce/_pycache_/
