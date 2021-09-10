@@ -1,4 +1,5 @@
 env/
 .vscode/
-_pycache_/
+db.sqlite3
+_pycache_
 ecommerce/_pycache_/
