@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m9kr)sx4-i%ga2^5=9!m!aa(79f=x0ve5onu51!2*g2(v@u21x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','authenove.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'authenove.herokuapp.com']
 
 
 # Application definition
@@ -50,7 +50,7 @@ ROOT_URLCONF = 'ecommerce.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join( BASE_DIR, 'templates' ) ],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,17 +69,15 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-""" DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
- """
 
 
-
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'authenove',
@@ -88,8 +86,7 @@ DATABASES = {
         'HOST':'database-1.clcax0bgpkvk.us-east-2.rds.amazonaws.com',
         'PORT':'5432'
     }
-}
-
+} """
 
 
 # Password validation
@@ -134,13 +131,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR/'static' 
+    BASE_DIR/'static'
 ]
 
 AWS_ACCESS_KEY_ID = 'AKIAYRECBWAQTUSPTZVX'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'authenovesample'
-
 
 
 AWS_QUERYSTRING_AUTH = False
