@@ -77,17 +77,6 @@ DATABASES = {
 }
 
 
-""" DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'authenove',
-        'USER':'mosarrof',
-        'PASSWORD':'mosarrof2245',
-        'HOST':'database-1.clcax0bgpkvk.us-east-2.rds.amazonaws.com',
-        'PORT':'5432'
-    }
-} """
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -134,15 +123,6 @@ STATICFILES_DIRS = [
     BASE_DIR/'static'
 ]
 
-AWS_ACCESS_KEY_ID = 'AKIAYRECBWAQTUSPTZVX'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'authenovesample'
-
-
-AWS_QUERYSTRING_AUTH = False
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Default primary key field type
