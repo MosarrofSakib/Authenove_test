@@ -69,14 +69,23 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+} """
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd8okvapl9dmpq1',
+        'USER': 'tqvnkgpalgbtte',
+        'PASSWORD': '0a4598e01e47a1499256ea1c4eac3db8a279f61d0f327287369d1c22be2925ae',
+        'HOST': 'ec2-34-233-192-238.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -122,7 +131,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR/'static'
 ]
-
 
 
 # Default primary key field type
