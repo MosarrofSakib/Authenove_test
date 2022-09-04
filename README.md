@@ -7,17 +7,13 @@ Live Demo can be viewed at https://authenove.herokuapp.com/
 # Features
 
 - Full featured shopping cart
-- Product reviews and ratings
-- Top products carousel
-- Product pagination
-- Product search feature
+- Latest 12 products on home page
 - User profile with orders
 - Admin product management
 - Admin user management
 - Admin Order details page
 - Mark orders as delivered option
 - Checkout process (shipping, payment method, etc)
-- PayPal / credit card integration
 
 # Download & Setup Instructions
 
@@ -26,4 +22,23 @@ Live Demo can be viewed at https://authenove.herokuapp.com/
 - 3 - Create virtual environment: virtualenv myenv
 - 4 - myenv\scripts\activate
 - 5 - pip install -r requirements.txt
-- 6 - python manage.py runserver
+- 6 - Create a .env file inside "ecommerce" folder and variables for database(postgresql) as mentioned below:
+  - DB_NAME=your_database_name
+  - DB_USER=your_database_username
+  - DB_PASSWORD=your_database_password
+  - DB_HOST=your_database_hostname
+  - DB_PORT=your_database_port_no
+- 6(alternative) - If you want to use default sqlite database, then comment out the postgresql db section and uncomment the sqlite db section inside settings.py
+- 7 - python manage.py runserver
+
+# Additional setup for admin panel
+
+- 1 - Craete a superuser with "python manage.py superuser"
+- 2 - Restart the server and go to http://127.0.0.1:8000/admin, Then login with superuser credentials
+- 3 - Select Groups and create 2 groups named with "admin" and "customer"
+
+# Add new products
+
+- 1 - Start the server with "python manage.py runserver"
+- 2 - Open http://127.0.0.1:8000/admin and login with superuser credentials
+- 3 - Select products from the left menu and add products
